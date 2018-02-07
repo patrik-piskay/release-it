@@ -178,6 +178,8 @@ All commands can use configuration variables (like template strings):
 "afterReleaseCommand": "echo Successfully released ${version} to ${dist.repo}."
 ```
 
+The variables can be found in the [default configuration](https://github.com/webpro/release-it/blob/master/conf/release-it.json). Additionally, `version`, `latestVersion` and `changelog` are exposed in custom commands. Also the `repo` object (with properties `remote`, `protocol`, `host`, `owner`, `repository` and `project`) is available.
+
 ## 📡 SSH keys & git remotes
 
 The tool assumes you've configured your SSH key and Git remotes correctly. In short: you're fine if you can `git push`. Otherwise, the following GitHub help pages might be useful: [SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) and [Managing Remotes](https://help.github.com/categories/managing-remotes/).
@@ -189,7 +191,7 @@ See this project's [releases page](https://github.com/webpro/release-it/releases
 To create [GitHub releases](https://help.github.com/articles/creating-releases/):
 
 * The `github.release` option must be `true`.
-* Obtain a [GitHub access token](https://github.com/settings/tokens).
+* Obtain a [GitHub access token](https://github.com/settings/tokens) (release-it only needs "repo" access; no "admin" or other scopes).
 * Make sure the token is available as an environment variable. Example:
 
 ```bash
